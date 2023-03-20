@@ -14,6 +14,8 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+Run the script, then import the MIDI file into your favorite DAW.
+
 ```
 options:
   -h, --help            show this help message and exit
