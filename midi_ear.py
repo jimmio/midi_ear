@@ -82,6 +82,14 @@ for note_name in CHOSEN_NOTES_IN_OCT:
     INSTRUMENT.notes.append(note)
     NOTE_START_TIME += (ARGS.bars * 4)
 
+# append rest after the last note to fill out the bar
+REST_NOTE_NUMBER = pretty_midi.note_name_to_number(CHOSEN_NOTES_IN_OCT[0])
+REST_NOTE = pretty_midi.Note(velocity=0,
+                             pitch=REST_NOTE_NUMBER,
+                             start=NOTE_START_TIME-1,
+                             end=NOTE_START_TIME)
+INSTRUMENT.notes.append(REST_NOTE)
+    
 MIDI_OBJ.instruments.append(INSTRUMENT)
 FILENAME = 'formula_in_' + CHOSEN_NOTES[0] + '.mid'
 MIDI_OBJ.write(FILENAME)
